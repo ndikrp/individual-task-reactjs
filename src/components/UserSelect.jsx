@@ -1,21 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-function UserSelect() {
+function UserSelect({ fruitAdded, onFruitFetched }) {
   const [selectedFruits, setSelectedFruits] = useState([]);
 
-  const handleRemoveFruit = id => {
-    setSelectedFruits(prev => prev.filter(fruit => fruit.id !== id));
+  const fetchUserSelectedFruits = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/user-fruits");
+      if (!response.ok) {
+        throw new Error("Failed to fetch user-selected fruits");
+      }
+      const data = await response.json();
+      setSelectedFruits(data);
+      onFruitFetched(); // Notify parent component that fruits have been fetched
+    } catch (error) {
+      console.error("Error fetching user-selected fruits:", error);
+    }
   };
+
+  useEffect(() => {
+    fetchUserSelectedFruits();
+  }, [fruitAdded]);
 
   return (
     <div>
       <h2>User Selected Fruits</h2>
-      <ul>
-        {selectedFruits.map(fruit => (
+      <ul className="fruit-user">
+        {selectedFruits.map((fruit) => (
           <li key={fruit.id}>
-            <img src={fruit.image.src} alt={fruit.image.alt} />
-            <span>{fruit.name}</span>
-            <button onClick={() => handleRemoveFruit(fruit.id)}>Remove</button>
+            <img
+              src={`http://localhost:8000/${fruit.image.src}`}
+              alt={fruit.image.alt}
+              className="fruit-image"
+            />
           </li>
         ))}
       </ul>

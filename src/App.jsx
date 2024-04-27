@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Fruits from "./components/Fruits";
 import UserSelect from "./components/UserSelect";
-import logoImg from "../public/logo.png";
 
 function App() {
+  const [fruitAdded, setFruitAdded] = useState(false);
+
+  const handleFruitAdded = () => {
+    setFruitAdded(true);
+  };
+
   return (
-    <>
-      <header>
-        <img src={logoImg} alt="logo" />
-        <h1>Fruit Calorie</h1>
-        <p>Get the calorie count of your favorite fruits!</p>
-      </header>
-      <main>
-        <UserSelect />
-        <Fruits />
-      </main>
-    </>
+    <div>
+      <UserSelect
+        fruitAdded={fruitAdded}
+        onFruitFetched={() => setFruitAdded(false)}
+      />
+      <Fruits onFruitAdded={handleFruitAdded} />
+    </div>
   );
 }
 
