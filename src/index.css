@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+html {
+  font-family: "Montserrat", sans-serif;
+  color: #defaf8;
+}
+
+body {
+  margin: 0;
+  padding: 2rem;
+  background: linear-gradient(-45deg, #d33366, #e73c7e, #bc1b6e, #961743);
+  background-size: 500% 500%;
+  animation: gradient 15s ease infinite;
+}
+
+header {
+  text-align: center;
+}
+
+header img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+}
+
+h2 {
+  text-align: center;
+}
+
+.fruit-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.fruit-list li {
+  margin: 10px;
+  cursor: pointer;
+}
+
+.fruit-list button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.fruit-image {
+  max-width: 230px;
+  max-height: 95px;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  background: #1f1c2c;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+@keyframes slide-down-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

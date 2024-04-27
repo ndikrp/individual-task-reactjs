@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Apple",
+        "calories": 52.1,
+        "carbohydrates": 14,
+        "fat": 0.3,
+        "protein": 0.4,
+        "image": {
+            "src": "apple.jpg",
+            "alt": "A red apple"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Banana",
+        "calories": 89.5,
+        "carbohydrates": 22,
+        "fat": 0.3,
+        "protein": 1.2,
+        "image": {
+            "src": "banana.jpg",
+            "alt": "A banana"
+        }
+    },
+    {
+        "id": 3,
+        "name": "Dragonfruit",
+        "calories": 15.5,
+        "carbohydrates": 5.5,
+        "fat": 0.1,
+        "protein": 0.3,
+        "image": {
+            "src": "dragonfruit.jpg",
+            "alt": "A dragonfruit"
+        }
+    },
+    {
+        "id": 4,
+        "name": "Orange",
+        "calories": 46.8,
+        "carbohydrates": 11,
+        "fat": 0.3,
+        "protein": 0.3,
+        "image": {
+            "src": "orange.jpg",
+            "alt": "An orange"
+        }
+    },
+    {
+        "id": 5,
+        "name": "Watermelon",
+        "calories": 15.5,
+        "carbohydrates": 3,
+        "fat": 0.1,
+        "protein": 0.2,
+        "image": {
+            "src": "watermelon.jpg",
+            "alt": "A watermelon"
+        }
+    }
+]
