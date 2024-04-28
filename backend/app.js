@@ -46,6 +46,25 @@ app.post('/add-fruit', async (req, res) => {
     }
 });
 
+app.delete('/delete-fruit/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const fileContent = await fs.promises.readFile('./data/user-fruits.json');
+        let userFruits = JSON.parse(fileContent);
+        const index = userFruits.findIndex(fruit => fruit.id === parseInt(id));
+        if (index !== -1) {
+            userFruits.splice(index, 1);
+            await fs.promises.writeFile('./data/user-fruits.json', JSON.stringify(userFruits, null, 2));
+            res.status(200).json({ message: 'Fruit deleted successfully' });
+        } else {
+            res.status(404).json({ message: 'Fruit not found' });
+        }
+    } catch (error) {
+        console.error('Error deleting fruit:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
 // 404 Not Found Page
 app.use((req, res, next) => {
     res.status(404).send('Not Found')

@@ -38,8 +38,9 @@ function Fruits({ onFruitAdded }) {
   };
 
   return (
-    <div>
+    <div className="fruits-container">
       <h2>Fruit List</h2>
+      <p>You can add fruits to calculate</p>
       <ul className="fruit-list">
         {fruits.map((fruit) => (
           <li key={fruit.id}>
