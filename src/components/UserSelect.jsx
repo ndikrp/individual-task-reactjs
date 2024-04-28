@@ -14,7 +14,7 @@ function UserSelect({ fruitAdded, onFruitFetched }) {
       }
       const data = await response.json();
       setSelectedFruits(data);
-      onFruitFetched(); // Notify parent component that fruits have been fetched
+      onFruitFetched();
     } catch (error) {
       console.error("Error fetching user-selected fruits:", error);
     }
@@ -26,7 +26,7 @@ function UserSelect({ fruitAdded, onFruitFetched }) {
 
   const openConfirmationModal = (fruit) => {
     setSelectedFruitToDelete(fruit);
-    setShowBackdrop(true); // Show backdrop when modal is opened
+    setShowBackdrop(true);
   };
 
   const handleDeleteFruit = async () => {
@@ -44,20 +44,46 @@ function UserSelect({ fruitAdded, onFruitFetched }) {
       if (response.ok) {
         console.log("Fruit deleted successfully");
         setSelectedFruitToDelete(null);
-        fetchUserSelectedFruits(); // Refresh the list of selected fruits
+        fetchUserSelectedFruits();
       } else {
         console.error("Failed to delete fruit");
       }
     } catch (error) {
       console.error("Error deleting fruit:", error);
     }
-    setShowBackdrop(false); // Hide backdrop after deletion
+    setShowBackdrop(false);
   };
+
+
+  const calculateTotals = () => {
+    const totalCalories = selectedFruits.reduce(
+      (acc, fruit) => acc + fruit.calories,
+      0
+    );
+    const totalCarbohydrates = selectedFruits.reduce(
+      (acc, fruit) => acc + fruit.carbohydrates,
+      0
+    );
+    const totalFat = selectedFruits.reduce((acc, fruit) => acc + fruit.fat, 0);
+    const totalProtein = selectedFruits.reduce(
+      (acc, fruit) => acc + fruit.protein,
+      0
+    );
+    return { totalCalories, totalCarbohydrates, totalFat, totalProtein };
+  };
+
+  const { totalCalories, totalCarbohydrates, totalFat, totalProtein } =
+    calculateTotals();
 
   return (
     <div className="user-container">
       <h2>User Selected Fruits</h2>
-      <p>You have selected {selectedFruits.length} fruits to calculate</p>
+      <p>You have selected {selectedFruits.length} fruits to calculate.</p>
+      <h3 className="total-info">
+        Total calories: {totalCalories}, Total carbohydrates:{" "}
+        {totalCarbohydrates}, Total fat: {totalFat}, Total protein:{" "}
+        {totalProtein}
+      </h3>
       <ul className="fruit-user">
         {selectedFruits.map((fruit) => (
           <li key={fruit.id}>
@@ -65,19 +91,18 @@ function UserSelect({ fruitAdded, onFruitFetched }) {
               src={`http://localhost:8000/${fruit.image.src}`}
               alt={fruit.image.alt}
               className="fruit-image"
-              onClick={() => openConfirmationModal(fruit)} // Click event to open modal
+              onClick={() => openConfirmationModal(fruit)}
             />
           </li>
         ))}
       </ul>
-      {showBackdrop && <div className="modal-backdrop"></div>}{" "}
-      {/* Render backdrop */}
+      {showBackdrop && <div className="modal-backdrop"></div>}
       {selectedFruitToDelete && (
         <ConfirmationModal
           isOpen={true}
           onClose={() => {
             setSelectedFruitToDelete(null);
-            setShowBackdrop(false); // Close modal and hide backdrop
+            setShowBackdrop(false);
           }}
           onConfirm={handleDeleteFruit}
           className="modal"

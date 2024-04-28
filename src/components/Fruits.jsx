@@ -28,7 +28,7 @@ function Fruits({ onFruitAdded }) {
       });
       if (response.ok) {
         console.log("Fruit added successfully");
-        onFruitAdded(); // Notify parent component that a fruit has been added
+        onFruitAdded(); 
       } else {
         console.error("Failed to add fruit");
       }
