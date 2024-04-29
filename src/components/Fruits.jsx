@@ -43,7 +43,7 @@ function Fruits({ onFruitAdded }) {
       <p>You can add fruits to calculate</p>
       <ul className="fruit-list">
         {fruits.map((fruit) => (
-          <li key={fruit.id}>
+          <li key={fruit.id} className="fruit-item">
             <button onClick={() => handleAddFruit(fruit)}>
               <img
                 className="fruit-image"

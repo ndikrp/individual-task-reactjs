@@ -80,9 +80,9 @@ function UserSelect({ fruitAdded, onFruitFetched }) {
       <h2>User Selected Fruits</h2>
       <p>You have selected {selectedFruits.length} fruits to calculate.</p>
       <h3 className="total-info">
-        Total calories: {totalCalories}, Total carbohydrates:{" "}
-        {totalCarbohydrates}, Total fat: {totalFat}, Total protein:{" "}
-        {totalProtein}
+        Total calories: {totalCalories} Kcal, Total carbohydrates:{" "} 
+        {totalCarbohydrates} G, Total fat: {totalFat} G, Total protein:{" "} 
+        {totalProtein} G
       </h3>
       <ul className="fruit-user">
         {selectedFruits.map((fruit) => (

@@ -58,5 +58,65 @@
             "src": "watermelon.jpg",
             "alt": "A watermelon"
         }
+    },
+    {
+        "id": 6,
+        "name": "Avocados",
+        "calories": 41.5,
+        "carbohydrates": 10,
+        "fat": 0.3,
+        "protein": 1.2,
+        "image": {
+            "src": "avocados.jpg",
+            "alt": "Avocados"
+        }
+    },
+    {
+        "id": 7,
+        "name": "Pineapple",
+        "calories": 46.8,
+        "carbohydrates": 11,
+        "fat": 0.3,
+        "protein": 0.3,
+        "image": {
+            "src": "pineapple.jpg",
+            "alt": "A pineapple"
+        }
+    },
+    {
+        "id": 8,
+        "name": "Starfruit",
+        "calories": 15.5,
+        "carbohydrates": 5.5,
+        "fat": 0.1,
+        "protein": 0.3,
+        "image": {
+            "src": "starfruit.jpg",
+            "alt": "A starfruit"
+        }
+    },
+    {
+        "id": 9,
+        "name": "Peach",
+        "calories": 46.8,
+        "carbohydrates": 11,
+        "fat": 0.3,
+        "protein": 0.3,
+        "image": {
+            "src": "peach.jpg",
+            "alt": "A peach"
+        }
+    },
+    {
+        "id": 10,
+        "name": "Melon",
+        "calories": 15.5,
+        "carbohydrates": 5.5,
+        "fat": 0.1,
+        "protein": 0.3,
+        "image": {
+            "src": "melon.jpg",
+            "alt": "A melon"
+        }
     }
 ]

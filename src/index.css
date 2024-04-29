@@ -95,6 +95,18 @@ h2 {
   transition: transform 0.2s ease;
 }
 
+.fruit-image:hover {
+  transform: rotate(-5deg); /* Tilt left on hover */
+}
+
+.fruit-image:focus {
+  outline: none; 
+}
+
+.fruit-image:nth-child(even):hover {
+  transform: rotate(5deg); 
+}
+
 .fruit-user {
   list-style-type: none;
   padding: 0;
