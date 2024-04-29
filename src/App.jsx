@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Fruits from "./components/Fruits";
 import UserSelect from "./components/UserSelect";
+import BackgroundEditor from "./components/BackgroundEditor";
 import logoImg from "/logo.png";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <>
+      <BackgroundEditor />
       <header>
         <img src={logoImg} alt="Logo" />
         <h1>Fruit Calculator</h1>
